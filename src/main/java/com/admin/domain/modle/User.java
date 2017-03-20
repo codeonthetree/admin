@@ -17,7 +17,7 @@ public class User implements Serializable {
 	private String id = UUID.randomUUID().toString();
 
 	/** 登录名称 */
-	private String username;
+	private String user_name;
 
 	/** 密码 */
 	private String password;
@@ -32,10 +32,10 @@ public class User implements Serializable {
 	private boolean disabled;
 
 	/** 创建时间 */
-	private Date createTime;
+	private Date create_time;
 
 	/** 最后登录时间 */
-	private Date lastTime;
+	private Date last_time;
 
 	public String getId() {
 		return id;
@@ -45,13 +45,6 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public String getPassword() {
 		return password;
@@ -77,22 +70,6 @@ public class User implements Serializable {
 		this.disabled = disabled;
 	}
 
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getLastTime() {
-		return lastTime;
-	}
-
-	public void setLastTime(Date lastTime) {
-		this.lastTime = lastTime;
-	}
-
 	public String getSalt() {
 		return salt;
 	}
@@ -101,7 +78,31 @@ public class User implements Serializable {
 		this.salt = salt;
 	}
 
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public Date getCreate_time() {
+		return create_time;
+	}
+
+	public void setCreate_time(Date create_time) {
+		this.create_time = create_time;
+	}
+
+	public Date getLast_time() {
+		return last_time;
+	}
+
+	public void setLast_time(Date last_time) {
+		this.last_time = last_time;
+	}
+
 	public boolean isRoot(){
-		return "root".equals(username);
+		return "root".equals(user_name);
 	}
 }

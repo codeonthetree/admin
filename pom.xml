@@ -4,17 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.admin</groupId>
-	<artifactId>admin</artifactId>
+	<artifactId>meeting_aio_admin</artifactId>
 	<version>0.1.0</version>
 	<packaging>jar</packaging>
 
-	<name>admin</name>
+	<name>meeting_aio_admin</name>
 	<description>admin manager</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.1.RELEASE</version>
+		<version>1.4.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 

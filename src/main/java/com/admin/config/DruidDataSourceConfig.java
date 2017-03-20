@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.jdbc.DatabaseDriver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
+@EnableTransactionManagement
 @EnableConfigurationProperties(DataSourceProperties.class)
 public class DruidDataSourceConfig {
 

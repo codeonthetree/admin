@@ -12,9 +12,9 @@ File Encoding         : 65001
 
 Date: 2016-10-24 13:40:00
 */
-DROP DATABASE IF EXISTS `admin`;
-CREATE DATABASE `admin`;
-USE `admin`;
+DROP DATABASE IF EXISTS `sona_aio_admin`;
+CREATE DATABASE `sona_aio_admin`;
+USE `sona_aio_admin`;
 
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -93,15 +93,15 @@ INSERT INTO `role_menu` VALUES ('f1d07c8f-57e9-4e00-a03f-348a96cd54e2', 'menu');
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` varchar(50) NOT NULL COMMENT '主键ID',
-  `username` varchar(20) NOT NULL COMMENT '登录名称',
+  `user_name` varchar(20) NOT NULL COMMENT '登录名称',
   `password` varchar(32) NOT NULL COMMENT '密码',
   `email` varchar(60) DEFAULT NULL COMMENT '邮箱',
   `salt` varchar(50) DEFAULT '0' COMMENT '密码的盐',
   `disabled` smallint(6) NOT NULL DEFAULT '1' COMMENT '0、禁用 1、正常',
-  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
-  `lastTime` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `last_time` datetime DEFAULT NULL COMMENT '最后登录时间',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `loginname` (`username`) USING BTREE
+  UNIQUE KEY `loginname` (`user_name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------

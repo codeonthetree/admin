@@ -51,7 +51,7 @@ public class UserService {
         validate(user);
         Assert.hasText(user.getPassword());
         user.setDisabled(false);
-        user.setCreateTime(new Date());
+        user.setCreate_time(new Date());
         user.setSalt(RandomStringUtils.randomAscii(10));
         user.setPassword(md5PasswordEncoder.encodePassword(user.getPassword(), user.getSalt()));
         userRepository.add(user);
@@ -66,8 +66,8 @@ public class UserService {
     public User modify(User user) {
         Assert.hasText(user.getId());
         User old = get(user.getId());
-        if (StringUtils.isNotBlank(user.getUsername())) {
-            old.setUsername(user.getUsername());
+        if (StringUtils.isNotBlank(user.getUser_name())) {
+            old.setUser_name(user.getUser_name());
         }
         if (StringUtils.isNotBlank(user.getPassword())) {
             old.setPassword(md5PasswordEncoder.encodePassword(user.getPassword(), old.getSalt()));
@@ -114,7 +114,7 @@ public class UserService {
 
 
     private void validate(User user) {
-        Assert.hasText(user.getUsername());
+        Assert.hasText(user.getUser_name());
         if (user.isRoot()) {
             throw new IllegalArgumentException("user loginName cannot is root");
         }

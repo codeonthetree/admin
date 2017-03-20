@@ -29,12 +29,12 @@ public class UserRepositoryJdbc implements UserRepository {
 
     @Override
     public void add(User user) {
-        jdbcTemplate.update("INSERT user (id,username,password,email,disabled,createTime,salt) VALUES (?,?,?,?,?,?,?)",user.getId(),user.getUsername(),user.getPassword(),user.getEmail(),user.isDisabled()?1:0,new Date(),user.getSalt());
+        jdbcTemplate.update("INSERT user (id,user_name,password,email,disabled,create_time,salt) VALUES (?,?,?,?,?,?,?)",user.getId(),user.getUser_name(),user.getPassword(),user.getEmail(),user.isDisabled()?1:0,new Date(),user.getSalt());
     }
 
     @Override
     public void update(User user) {
-        jdbcTemplate.update("UPDATE user SET username=?,email=?,password=? WHERE id=?",user.getUsername(),user.getEmail(),user.getPassword(),user.getId());
+        jdbcTemplate.update("UPDATE user SET user_name=?,email=?,password=? WHERE id=?",user.getUser_name(),user.getEmail(),user.getPassword(),user.getId());
     }
 
     @Override
@@ -68,7 +68,7 @@ public class UserRepositoryJdbc implements UserRepository {
 
     @Override
     public List<User> list() {
-        return jdbcTemplate.query("select * from user where username <> 'root'", BeanPropertyRowMapper.newInstance(User.class));
+        return jdbcTemplate.query("select * from user where user_name <> 'root'", BeanPropertyRowMapper.newInstance(User.class));
     }
 
 
@@ -97,7 +97,7 @@ public class UserRepositoryJdbc implements UserRepository {
     @Override
     public User findByUserName(String username) {
         try {
-            return jdbcTemplate.queryForObject("select * from user where username=? ", BeanPropertyRowMapper.newInstance(User.class), username);
+            return jdbcTemplate.queryForObject("select * from user where user_name=? ", BeanPropertyRowMapper.newInstance(User.class), username);
         }catch (EmptyResultDataAccessException e){
             return null;
         }
@@ -105,7 +105,7 @@ public class UserRepositoryJdbc implements UserRepository {
 
     @Override
     public List<User> getUserByUname(String username) {
-        return jdbcTemplate.query("select * from user where username =?",BeanPropertyRowMapper.newInstance(User.class),username);
+        return jdbcTemplate.query("select * from user where user_name =?",BeanPropertyRowMapper.newInstance(User.class),username);
     }
 
     @Override
